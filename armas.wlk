@@ -3,6 +3,7 @@ object ballesta {
     method potenciaDeAtaque() {
         return 4
     }
+    method flechas() = flechas
     method registrarUso () { 
         flechas = 0.max(flechas - 1)
     }
@@ -19,6 +20,6 @@ object jabalina {
     method registrarUso () { 
         estaCargada = false
     }
-    method estaCargada() = estaCargada
+    method estaCarga() = estaCargada
 
 }

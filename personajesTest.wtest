@@ -1,0 +1,42 @@
+import personajes.*
+import elementos.*
+import armas.*
+describe "Los personajes" {
+  test "floki tiene una ballesta y se encuentra con un castillo" {
+    //Arange
+    floki.arma(ballesta)
+
+    //Act
+    floki.encontrar(castillo)
+
+    //Assert
+    assert.equals(146, castillo.nivelDeDefensa())
+    assert.equals(9, ballesta.flechas())
+    assert.that(ballesta.estaCarga())
+  }
+
+  test "floki tiene una ballesta y se encuentra con aurora" {
+    //Arange
+    floki.arma(ballesta)
+
+    //Act
+    floki.encontrar(aurora)
+
+    //Assert
+    assert.that(aurora.estaViva())
+    assert.equals(9, ballesta.flechas())
+    assert.that(ballesta.estaCarga())
+  }
+
+  test "floki tiene una jabalina y se encuentra con aurora" {
+    //Arange
+    floki.arma(jabalina)
+
+    //Act
+    floki.encontrar(aurora)
+
+    //Assert
+    assert.notThat(aurora.estaViva())
+    assert.notThat(jabalina.estaCarga())
+  }
+}
